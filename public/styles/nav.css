@@ -1,0 +1,25 @@
+/* whole nav bar */
+nav#nav-bar {
+    position: fixed;
+    height: 80px;
+    background: #00a087;
+    color: #e8fdff;
+    width: 100%;
+    margin: 0 2em;  /* why this is not applying to right side */
+  }
+
+  /* logo */
+  #nav-bar .logo {
+    height: 80px;
+    width: 80px;
+    float: left;
+  }
+
+  /* "Tweeter" */
+  #nav-bar .header {
+    color: white;
+    font-size: 2em;
+    line-height: 2.5em;
+    padding-left: 10px;
+    float: left;
+  }

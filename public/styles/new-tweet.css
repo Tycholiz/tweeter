@@ -1,0 +1,33 @@
+.container .new-tweet {
+    background: #DEDEE;
+    border: 1px solid darkgrey;
+    border-radius: 6px;
+    padding: 15px;
+    box-shadow: 1.5px 1.5px 5px 1px rgba(0,0,0,0.59);
+  }
+  
+  #tweet-textbox {
+    width: 100%;
+    box-sizing: border-box;
+    font-size: .65em;
+    padding: 6px;
+  }
+  
+  .new-tweet h2 {
+    border-bottom: 2px solid black;
+    padding-top: 10px;
+    font-size: 1em;
+    font: bold;
+    margin: 0 10px 25px auto;
+  }
+  
+  #tweet-btn {
+    border: 1px solid rgb(173, 173, 173);
+    border-radius: 4px;
+    font-size: .8em;
+  }
+  
+  .container .new-tweet .counter {
+    float: right;
+    font-size: .6em;
+  }
