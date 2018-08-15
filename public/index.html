@@ -9,8 +9,6 @@
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
     <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
     <link rel="stylesheet" href="/styles/new-tweet.css" type="text/css" />
-    
-
     <!-- App JS -->
     
   </head>
@@ -26,13 +24,14 @@
     <main class="container">
       <section class="compose-tweet">
         <h2>Compose Tweet</h2>
-        <form method="POST" action="/tweets">
+        <form method="POST" action="/tweets" id="tweet-form">
           <textarea name="text" id="tweet-textbox" placeholder="What are you humming about?"></textarea>
           <input type="submit" value="Tweet" id="tweet-btn">
           <span class="counter">140</span>
         </form>
       </section>
-  
+      <section id='tweets'>
+      </section>
     </main>
     <script type="text/javascript" src="/vendor/jquery-2.2.3.min.js"></script>
     <script type="text/javascript" src="/scripts/composer-char-counter.js"></script>

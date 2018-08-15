@@ -1,6 +1,6 @@
 /* CSS for "Compose Tweet" box */
 .compose-tweet {
-  margin-top: 80px;
+  margin-top: -40px;
 }
 
 .container .compose-tweet, .tweet {
