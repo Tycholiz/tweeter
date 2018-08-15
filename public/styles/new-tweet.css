@@ -1,33 +1,123 @@
-.container .new-tweet {
+/* CSS for "Compose Tweet" box */
+.compose-tweet {
+  margin-top: 80px;
+}
+
+.container .compose-tweet, .tweet {
     background: #DEDEE;
-    border: 1px solid darkgrey;
+    border: 0.5px solid darkgrey;
     border-radius: 6px;
     padding: 15px;
-    box-shadow: 1.5px 1.5px 5px 1px rgba(0,0,0,0.59);
-  }
-  
-  #tweet-textbox {
-    width: 100%;
-    box-sizing: border-box;
-    font-size: .65em;
-    padding: 6px;
-  }
-  
-  .new-tweet h2 {
-    border-bottom: 2px solid black;
-    padding-top: 10px;
-    font-size: 1em;
-    font: bold;
-    margin: 0 10px 25px auto;
-  }
-  
-  #tweet-btn {
-    border: 1px solid rgb(173, 173, 173);
-    border-radius: 4px;
-    font-size: .8em;
-  }
-  
-  .container .new-tweet .counter {
-    float: right;
-    font-size: .6em;
-  }
+    box-shadow: 1px 1px 5px rgba(0,0,0,0.35);
+}
+
+#tweet-textbox {
+  width: 100%;
+  box-sizing: border-box;
+  font-size: .65em;
+  padding: 6px;
+}
+
+.compose-tweet h2 {
+  border-bottom: 2px solid black;
+  padding-top: 10px;
+  font-size: 1em;
+  font: bold;
+  margin: 0 10px 25px auto;
+}
+
+#tweet-btn {
+  border: 1px solid rgb(173, 173, 173);
+  border-radius: 4px;
+  font-size: .8em;
+}
+
+.container .compose-tweet .counter {
+  float: right;
+  font-size: .6em;
+}
+
+/* CSS for new tweets */
+article.tweet {
+  margin-top: 15px;
+  padding: 0;
+  opacity: 0.75;
+}
+
+article.tweet:hover {
+  opacity: 1;
+  border: .7px solid black;
+}
+
+.tweet header {
+  background: lightgrey;
+  padding: 10px;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+}
+
+span.tweet-text {
+  font-size: 50%;
+  display: block;
+  padding: 10px;
+}
+
+.tweet .tweeter-pic {
+  height: 50px;
+  width: 50px;
+  float: left;
+  position: relative;
+  top: -1px;
+}
+
+.tweet .tweeter-handle {
+  float: right;
+  font-size: 40%;
+  position: relative;
+  top: -50px;
+  color: grey;
+}
+
+.tweet .tweeter-name {
+  font-size: 60%;
+  position: relative;
+  top: -16px;
+  margin-left: 5px;
+}
+
+.tweet footer {
+  border-top: .4px solid lightgrey;
+}
+
+span.time-elapsed {
+  font-size: 30%;
+  margin-top: 30px;
+  margin-bottom: 90px;
+  vertical-align: middle;
+  padding-left: 5px;
+}
+
+.tweet .tweet-icons {
+  display: none;
+}
+
+.tweet:hover .tweet-icons {
+  display: block;
+  font-size: 60%;
+}
+.tweet-icons {
+  float: right;
+  height: 30px;
+  color: rgb(0, 105, 97);
+  padding-top: 9px;
+  padding-right: 7px;
+}
+
+.tweet .tweeter-pic {
+  opacity: 1;
+}
+
+.fas:hover{
+  transition: all 0.2s ease-in-out;
+  font-size: 110%;
+}

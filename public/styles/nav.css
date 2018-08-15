@@ -6,6 +6,7 @@ nav#nav-bar {
     color: #e8fdff;
     width: 100%;
     margin: 0 2em;  /* why this is not applying to right side */
+    z-index: 1;
   }
 
   /* logo */
