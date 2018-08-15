@@ -57,9 +57,9 @@ article.tweet:hover {
 }
 
 span.tweet-text {
-  font-size: 50%;
+  font-size: 70%;
   display: block;
-  padding: 10px;
+  padding: 50px 10px;
 }
 
 .tweet .tweeter-pic {
@@ -72,17 +72,29 @@ span.tweet-text {
 
 .tweet .tweeter-handle {
   float: right;
-  font-size: 40%;
+  font-size: 60%;
   position: relative;
-  top: -50px;
   color: grey;
 }
 
 .tweet .tweeter-name {
-  font-size: 60%;
+  font-size: 70%;
   position: relative;
   top: -16px;
   margin-left: 5px;
+}
+.tweet .tweet-header {
+  display: flex;
+}
+
+img.twitter-pic {
+  border-radius: 5px;
+  width: 70px;
+  height: 70px;
+}
+
+.auto {
+  flex: auto;
 }
 
 .tweet footer {
@@ -90,7 +102,7 @@ span.tweet-text {
 }
 
 span.time-elapsed {
-  font-size: 30%;
+  font-size: 50%;
   margin-top: 30px;
   margin-bottom: 90px;
   vertical-align: middle;
@@ -118,6 +130,6 @@ span.time-elapsed {
 }
 
 .fas:hover{
-  transition: all 0.2s ease-in-out;
+  transition: all 0.5s ease-in-out;
   font-size: 110%;
 }

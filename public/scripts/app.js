@@ -14,7 +14,7 @@ $(function() {
 
         $( "article.tweet" ).append($tweetHeader);
         $( "header.tweet-header" ).append( $( "<img class='twitter-pic' src=" + tweet.user.avatars.small + "></img>" ));
-        $( "header.tweet-header" ).append( $( "<h2 class='tweeter-name'>" + tweet.user.name + "</h2>" ));
+        $( "header.tweet-header" ).append( $( "<h2 class='tweeter-name auto'>" + tweet.user.name + "</h2>" ));
         $( "header.tweet-header" ).append( $( "<span class='tweeter-handle'>" + tweet.user.handle + "</span>" ));
 
         $( "article.tweet" ).append($tweetBody);
