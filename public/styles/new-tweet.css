@@ -123,6 +123,7 @@ span.time-elapsed {
   color: rgb(0, 105, 97);
   padding-top: 9px;
   padding-right: 7px;
+  cursor: pointer;
 }
 
 .tweet .tweeter-pic {
@@ -132,4 +133,11 @@ span.time-elapsed {
 .fas:hover{
   transition: all 0.5s ease-in-out;
   font-size: 110%;
+}
+
+#tweet-form .error-msg {
+  color: red;
+  font-size: 50%;
+  box-shadow: 0 0 0 rgba(204,169,44, 0.4);
+  animation: pulse 2s infinite;
 }

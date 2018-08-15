@@ -14,7 +14,7 @@ $(function() {
   loadTweets();
 
   function createTweetElement(tweet) {
-    var $tweet = $("<article>").addClass("tweet");
+    var $tweet = $( "<article>" ).addClass("tweet");
     var $tweetHeader = $( "<header>" ).addClass("tweet-header");
     var $tweetBody = $( "<div>" ).addClass("tweet-body");
     var $tweetFooter = $( "<footer>" ).addClass("tweet-footer");
@@ -39,9 +39,21 @@ $(function() {
     return $tweet;
   }
 
+  //Form submit handler
   $( 'form#tweet-form' ).on('submit', function(e) {
+    var $appendPt = $( "#tweet-form" )  //this is what the error span attaches to
+    var $textFieldLength = $( "#tweet-textbox" ).val().length;
     e.preventDefault();
-    console.log( $( this ).serialize() );
-    $( 'textarea#tweet-textbox' ).val('');
+    var serializedData = $(this).serialize();
+    if ($textFieldLength > 0) {
+      $( 'textarea#tweet-textbox' ).val('');
+      $( '.error-msg' ).remove();
+      $( '.counter' ).html('140');
+    } else if ($textFieldLength < 1 && $('.error-msg').length === 0) {
+      $appendPt.append( $( "<span class='error-msg'>You must enter some text</span>" ));
+    } else {
+      $( '.error-msg' ).remove();
+      $appendPt.append( $( "<span class='error-msg'>You must enter some text</span>"))
+    }
   });
 });
