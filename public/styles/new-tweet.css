@@ -59,7 +59,8 @@ article.tweet:hover {
 span.tweet-text {
   font-size: 70%;
   display: block;
-  padding: 50px 10px;
+  padding: 30px 10px;
+  word-wrap: break-word;
 }
 
 .tweet .tweeter-pic {
@@ -130,14 +131,18 @@ span.time-elapsed {
   opacity: 1;
 }
 
-.fas:hover{
+.share-icon:hover{
   transition: all 0.5s ease-in-out;
   font-size: 110%;
 }
 
 #tweet-form .error-msg {
   color: red;
-  font-size: 50%;
-  box-shadow: 0 0 0 rgba(204,169,44, 0.4);
-  animation: pulse 2s infinite;
+  font-size: 45%;
+  line-height: .9;
+}
+
+.tweet-body {
+  max-height: 220px;
+  min-height: 100px;
 }

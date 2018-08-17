@@ -4,11 +4,20 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 $(function() {
+  function escape(str) {
+    var div = document.createElement('div');
+    div.appendChild(document.createTextNode(str));
+    return div.innerHTML;
+  }
+  
   var $tweets = $('#tweets')
 
   function loadTweets() {
     $.getJSON('/tweets', function( tweets ) {
-      $tweets.append(tweets.map(createTweetElement));
+      // $tweets.append(tweets.map(createTweetElement));
+      tweets.forEach(function(tweet) {
+        $tweets.prepend(createTweetElement(tweet));
+      });
     });
   }
   loadTweets();
@@ -33,28 +42,44 @@ $(function() {
     var $tweetIcons = $('<div class="tweet-icons">');
 
     $tweetFooter.append($tweetIcons);
-    $tweetIcons.append( $( "<i class='fas fa-flag'></i>" ));
-    $tweetIcons.append( $( "<i class='fas fa-retweet'></i>" ));
-    $tweetIcons.append( $( "<i class='fas fa-heart'></i>" ));
+    $tweetIcons.append( $( "<i class='fas fa-flag share-icon'></i>" ));
+    $tweetIcons.append( $( "<i class='fas fa-retweet share-icon'></i>" ));
+    $tweetIcons.append( $( "<i class='fas fa-heart share-icon'></i>" ));
     return $tweet;
   }
 
   //Form submit handler
   $( 'form#tweet-form' ).on('submit', function(e) {
+    e.preventDefault();
     var $appendPt = $( "#tweet-form" )  //this is what the error span attaches to
     var $textFieldLength = $( "#tweet-textbox" ).val().length;
-    e.preventDefault();
+    
     var serializedData = $(this).serialize();
-    if ($textFieldLength > 0) {
+    
+    if ($textFieldLength > 0 && $textFieldLength <= 140) {
+      $.post( "/tweets", serializedData, function( data ) {
+        $( '#tweets' ).empty();
+        loadTweets();
+      });
+
       $( 'textarea#tweet-textbox' ).val('');
       $( '.error-msg' ).remove();
-      $( '.counter' ).html('140');
+      $( '.counter' ).html('140').css( 'color', 'black' );  //why doesn't this work?!
     } else if ($textFieldLength < 1 && $('.error-msg').length === 0) {
       $appendPt.append( $( "<span class='error-msg'>You must enter some text</span>" ));
+    } else if ($textFieldLength > 140 && $('.error-msg').length === 0) {
+      $appendPt.append( $( "<span class='error-msg'>Your tweet exceeds the maximum allowed length</span>" ));
     } else {
       $( '.error-msg' ).remove();
       $appendPt.append( $( "<span class='error-msg'>You must enter some text</span>"))
       
+    }
+  });
+
+  $( '#compose-btn' ).on( 'click', function(e) {
+    $( '.compose-tweet' ).slideToggle( "slow" );
+    if ($( '.compose-tweet' ).is(":visible") ) {
+      $( '#tweet-textbox' ).focus();
     }
   });
 });
