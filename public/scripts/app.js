@@ -4,6 +4,12 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 $(function() {
+  function escape(str) {
+    var div = document.createElement('div');
+    div.appendChild(document.createTextNode(str));
+    return div.innerHTML;
+  }
+  
   var $tweets = $('#tweets')
 
   function loadTweets() {
@@ -66,6 +72,13 @@ $(function() {
     } else {
       $( '.error-msg' ).remove();
       $appendPt.append( $( "<span class='error-msg'>You must enter some text</span>"))
+    }
+  });
+
+  $( '#compose-btn' ).on( 'click', function(e) {
+    $( '.compose-tweet' ).slideToggle( "slow" );
+    if ($( '.compose-tweet' ).is(":visible") ) {
+      $( '#tweet-textbox' ).focus();
     }
   });
 });
