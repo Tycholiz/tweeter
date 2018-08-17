@@ -54,6 +54,7 @@ $(function() {
     } else {
       $( '.error-msg' ).remove();
       $appendPt.append( $( "<span class='error-msg'>You must enter some text</span>"))
+      
     }
   });
 });
