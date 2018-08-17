@@ -32,9 +32,10 @@ $(function() {
     $tweetHeader.append( $( "<img class='twitter-pic' src=" + tweet.user.avatars.small + "></img>" ));
     $tweetHeader.append( $( "<h2 class='tweeter-name auto'>" + tweet.user.name + "</h2>" ));
     $tweetHeader.append( $( "<span class='tweeter-handle'>" + tweet.user.handle + "</span>" ));
-
+    console.log(tweet.content.text);
+    console.log(escape(tweet.content.text));
     $tweet.append($tweetBody);
-    $tweetBody.append( $( "<span class='tweet-text'>" + tweet.content.text + "</span>" ));
+    $tweetBody.append( $( "<span class='tweet-text'>" + escape(tweet.content.text) + "</span>" ));
 
     $tweet.append($tweetFooter);
     $tweetFooter.append( $( "<span class='time-elapsed'>" + tweet.created_at + "</span>" ));
@@ -53,9 +54,8 @@ $(function() {
     e.preventDefault();
     var $appendPt = $( "#tweet-form" )  //this is what the error span attaches to
     var $textFieldLength = $( "#tweet-textbox" ).val().length;
-    
     var serializedData = $(this).serialize();
-    
+
     if ($textFieldLength > 0 && $textFieldLength <= 140) {
       $.post( "/tweets", serializedData, function( data ) {
         $( '#tweets' ).empty();
@@ -71,15 +71,7 @@ $(function() {
       $appendPt.append( $( "<span class='error-msg'>Your tweet exceeds the maximum allowed length</span>" ));
     } else {
       $( '.error-msg' ).remove();
-      $appendPt.append( $( "<span class='error-msg'>You must enter some text</span>"))
-      
-    }
-  });
-
-  $( '#compose-btn' ).on( 'click', function(e) {
-    $( '.compose-tweet' ).slideToggle( "slow" );
-    if ($( '.compose-tweet' ).is(":visible") ) {
-      $( '#tweet-textbox' ).focus();
+      $appendPt.append( $( "<span class='error-msg'>You must enter some text</span>"));
     }
   });
 
