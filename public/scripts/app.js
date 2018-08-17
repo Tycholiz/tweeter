@@ -82,4 +82,11 @@ $(function() {
       $( '#tweet-textbox' ).focus();
     }
   });
+
+  $( '#compose-btn' ).on( 'click', function(e) {
+    $( '.compose-tweet' ).slideToggle( "slow" );
+    if ($( '.compose-tweet' ).is(":visible") ) {
+      $( '#tweet-textbox' ).focus();
+    }
+  });
 });
