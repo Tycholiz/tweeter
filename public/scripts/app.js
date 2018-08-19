@@ -1,5 +1,18 @@
 $(function() {
-
+  $.delete = function(url, data, callback, type){
+    if ( $.isFunction(data) ){
+      type = type || callback,
+          callback = data,
+          data = {}
+    }
+    return $.ajax({
+      url: url,
+      type: 'DELETE',
+      success: callback,
+      data: data,
+      contentType: type
+    });
+  }
   function timeSinceTweet(unixTime) { 
     var secondsElapsed = (Date.now() - unixTime) / 1000;
     var minutes = 0;
@@ -55,6 +68,7 @@ $(function() {
 
     $tweet.append($tweetFooter);
     $tweetFooter.append( $( "<span class='time-elapsed'>" + timeSinceTweet(tweet.created_at) + "</span>" ));
+    $tweetFooter.append( $( "<i class='fas fa-trash-alt delete-tweet'></i></i>" ));
     
     var $tweetIcons = $('<div class="tweet-icons">');
 
@@ -93,6 +107,10 @@ $(function() {
       removeErrorMsg;
       $appendPt.append( $( "<span class='error-msg'>You must enter some text</span>"));
     }
+  });
+
+  $( '.delete-tweet' ).on( 'click', function(e) {
+    $.post( "/tweets" )
   });
 
   $( '#compose-btn' ).on( 'click', function(e) {
