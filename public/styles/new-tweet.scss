@@ -1,0 +1,46 @@
+.compose-tweet {
+    margin-top: -40px;
+    padding: 15px;
+    background: rgb(240, 240, 240);
+    border: 0.5px solid darkgrey;
+    border-radius: 6px;
+    box-shadow: 1px 1px 5px rgba(0,0,0,0.35);
+    h2 {
+        border-bottom: 2px solid black;
+        padding-top: 10px;
+        font-size: 1em;
+        font: bold;
+        margin: 0 10px 25px auto;
+    }
+    #tweet-textbox {
+        width: 100%;
+        box-sizing: border-box;
+        font-size: .65em;
+        padding: 6px;
+    }
+    #tweet-btn {
+    border: 1px solid rgb(173, 173, 173);
+    border-radius: 4px;
+    font-size: .8em;
+    }
+    .error-msg {
+        color: red;
+        font-size: 55%;
+        line-height: .9;
+      }
+    .counter {
+        float: right;
+        font-size: .6em;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+/* CSS for new tweets */

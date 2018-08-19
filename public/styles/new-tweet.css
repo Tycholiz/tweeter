@@ -1,148 +1,33 @@
-/* CSS for "Compose Tweet" box */
 .compose-tweet {
   margin-top: -40px;
-}
-
-.container .compose-tweet, .tweet {
-    background: #DEDEE;
-    border: 0.5px solid darkgrey;
-    border-radius: 6px;
-    padding: 15px;
-    box-shadow: 1px 1px 5px rgba(0,0,0,0.35);
-}
-
-#tweet-textbox {
-  width: 100%;
-  box-sizing: border-box;
-  font-size: .65em;
-  padding: 6px;
-}
-
-.compose-tweet h2 {
-  border-bottom: 2px solid black;
-  padding-top: 10px;
-  font-size: 1em;
-  font: bold;
-  margin: 0 10px 25px auto;
-}
-
-#tweet-btn {
-  border: 1px solid rgb(173, 173, 173);
-  border-radius: 4px;
-  font-size: .8em;
-}
-
-.container .compose-tweet .counter {
-  float: right;
-  font-size: .6em;
-}
+  padding: 15px;
+  background: #f0f0f0;
+  border: 0.5px solid darkgrey;
+  border-radius: 6px;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.35); }
+  .compose-tweet h2 {
+    border-bottom: 2px solid black;
+    padding-top: 10px;
+    font-size: 1em;
+    font: bold;
+    margin: 0 10px 25px auto; }
+  .compose-tweet #tweet-textbox {
+    width: 100%;
+    box-sizing: border-box;
+    font-size: .65em;
+    padding: 6px; }
+  .compose-tweet #tweet-btn {
+    border: 1px solid #adadad;
+    border-radius: 4px;
+    font-size: .8em; }
+  .compose-tweet .error-msg {
+    color: red;
+    font-size: 55%;
+    line-height: .9; }
+  .compose-tweet .counter {
+    float: right;
+    font-size: .6em; }
 
 /* CSS for new tweets */
-article.tweet {
-  margin-top: 15px;
-  padding: 0;
-  opacity: 0.75;
-}
 
-article.tweet:hover {
-  opacity: 1;
-  border: .7px solid black;
-}
-
-.tweet header {
-  background: lightgrey;
-  padding: 10px;
-  border-top-left-radius: 6px;
-  border-top-right-radius: 6px;
-}
-
-span.tweet-text {
-  font-size: 70%;
-  display: block;
-  padding: 30px 10px;
-  word-wrap: break-word;
-}
-
-.tweet .tweeter-pic {
-  height: 50px;
-  width: 50px;
-  float: left;
-  position: relative;
-  top: -1px;
-}
-
-.tweet .tweeter-handle {
-  float: right;
-  font-size: 60%;
-  position: relative;
-  color: grey;
-}
-
-.tweet .tweeter-name {
-  font-size: 70%;
-  position: relative;
-  top: -16px;
-  margin-left: 5px;
-}
-.tweet .tweet-header {
-  display: flex;
-}
-
-img.twitter-pic {
-  border-radius: 5px;
-  width: 70px;
-  height: 70px;
-}
-
-.auto {
-  flex: auto;
-}
-
-.tweet footer {
-  border-top: .4px solid lightgrey;
-}
-
-span.time-elapsed {
-  font-size: 50%;
-  margin-top: 30px;
-  margin-bottom: 90px;
-  vertical-align: middle;
-  padding-left: 5px;
-}
-
-.tweet .tweet-icons {
-  display: none;
-}
-
-.tweet:hover .tweet-icons {
-  display: block;
-  font-size: 60%;
-}
-.tweet-icons {
-  float: right;
-  height: 30px;
-  color: rgb(0, 105, 97);
-  padding-top: 9px;
-  padding-right: 7px;
-  cursor: pointer;
-}
-
-.tweet .tweeter-pic {
-  opacity: 1;
-}
-
-.share-icon:hover{
-  transition: all 0.5s ease-in-out;
-  font-size: 110%;
-}
-
-#tweet-form .error-msg {
-  color: red;
-  font-size: 45%;
-  line-height: .9;
-}
-
-.tweet-body {
-  max-height: 220px;
-  min-height: 100px;
-}
+/*# sourceMappingURL=new-tweet.css.map */

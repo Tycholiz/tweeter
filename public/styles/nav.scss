@@ -27,7 +27,7 @@
 
 #compose-btn {
   border: 1px solid black;
-  cursor: pointer;
+  @include cursorPointer;
   border-radius: 10px;
   float: right;
   background: $offwhite;
@@ -39,6 +39,7 @@
   color: $green;
   box-shadow: 0px 2px 0px 0px $green;
   transition: all 0.1s;
+  
   &:hover {
     background: white;
     color: darkslategray;

@@ -1,0 +1,87 @@
+@import "variables";
+
+.tweet {
+  margin-top: 15px;
+  opacity: 0.75;
+  background: #DEDEE;
+  border: 0.5px solid darkgrey;
+  border-radius: 6px;
+  padding: 15px;
+  box-shadow: 1px 1px 5px rgba(0,0,0,0.35);  
+  &:hover {
+    opacity: 1;
+    border: .7px solid black;
+    .tweet-icons {
+      display: block;
+      font-size: 60%;
+    }
+  }
+  .tweet-header {
+    background: lightgrey;
+    padding: 10px;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    display: flex;
+    }
+    .tweeter-name {
+      font-size: 70%;
+      position: relative;
+      top: -16px;
+      margin-left: 5px;
+    }
+    .twitter-pic {
+      border-radius: 5px;
+      width: 70px;
+      height: 70px;
+      opacity: 1;
+    }
+    .tweeter-handle {
+      float: right;
+      font-size: 60%;
+      position: relative;
+      color: grey;
+    }
+    .auto {
+      flex: auto;
+    }
+  }
+  .tweet-body {
+    max-height: 220px;
+    min-height: 100px;
+    .tweet-text {
+      font-size: 70%;
+      display: block;
+      padding: 30px 10px;
+      word-wrap: break-word;
+    }
+  }
+  .tweet-footer {
+    border-top: .4px solid lightgrey;
+    .time-elapsed {
+      font-size: 50%;
+      margin-top: 30px;
+      margin-bottom: 90px;
+      vertical-align: middle;
+      padding-left: 5px;
+    }
+    .tweet-icons {
+      display: none;
+      float: right;
+      height: 30px;
+      color: rgb(0, 105, 97);
+      padding-top: 9px;
+      padding-right: 7px;
+      cursor: pointer;
+      .share-icon:hover{
+        transition: all 0.5s ease-in-out;
+        font-size: 110%;
+      }
+    }
+  }
+
+  
+ 
+  
+
+  
+   

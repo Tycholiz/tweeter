@@ -1,3 +1,6 @@
-// $green: #00a087;
-$green: red;
+$green: #00a087;
 $offwhite: #e8fdff;
+
+@mixin cursorPointer {
+    cursor: pointer;
+}

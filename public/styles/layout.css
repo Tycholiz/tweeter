@@ -3,34 +3,24 @@
  * https://css-tricks.com/international-box-sizing-awareness-day/
  * Do not modify these two selectors, please
  */
-
 html {
   box-sizing: border-box;
-  font-family: 'Roboto Condensed', sans-serif;
-}
-*, *:before, *:after {
-  box-sizing: inherit;
-}
+  font-family: 'Roboto Condensed', sans-serif; }
 
-/*
- * Global layout stuff
- */
+*:before,
+* *:after {
+  box-sizing: inherit; }
 
 body {
   margin: 0;
   color: #244751;
-  background-color: #eee;
-}
+  background-color: #eee; }
 
 main {
   width: 450px;
-  background: white;  
+  background: white;
   font-size: 2em;
   margin: 0 auto;
-  padding: 140px 2em;
-}
+  padding: 140px 2em; }
 
-
-/*
- * Additional CSS can be defined below or in other CSS files, as per instructions
- */
+/*# sourceMappingURL=layout.css.map */
