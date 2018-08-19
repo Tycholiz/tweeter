@@ -26,7 +26,6 @@ module.exports = function(DataHelpers) {
       res.status(400).json({ error: 'invalid request: no data in POST body'});
       return;
     }
-    
     const user = req.body.user ? req.body.user : userHelper.generateRandomUser();
     const tweet = {
       user: user,
@@ -44,13 +43,8 @@ module.exports = function(DataHelpers) {
       }
     });
   });
-
-  tweetsRoutes.post("/tweets", function(req, res) { //this is returning a 201, instead of 200 as shown in compass
-    
-  });
-  
- 
-
+  // tweetsRoutes.delete("/", function(req, res) {
+  //   DataHelpers.deleteTweet(tweet);
+  // }
   return tweetsRoutes;
-
 }

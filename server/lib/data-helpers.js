@@ -4,14 +4,17 @@
 module.exports = function makeDataHelpers(db) {
   return {
 
-    // Saves a tweet to `db`
+    // Saves a tweet to `db` (C)
     saveTweet: function(newTweet, callback) {
       db.collection("tweeter").insertOne(newTweet, callback);
     },
 
-    // Get all tweets in `db`, sorted by newest first
+    // Get all tweets in `db`, sorted by newest first (R)
     getTweets: function(callback) {
       db.collection("tweeter").find().toArray(callback);
     }
+    // deleteTweet: function(callback) {
+    //   db.collection("tweeter").drop(callback);
+    // }
   }
 };

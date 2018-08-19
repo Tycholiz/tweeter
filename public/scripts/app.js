@@ -1,22 +1,39 @@
-/*
- * Client-side JS logic goes here
- * jQuery is already loaded
- * Reminder: Use (and do all your DOM work in) jQuery's document ready function
- */
 $(function() {
+
+  function timeSinceTweet(unixTime) { 
+    var secondsElapsed = (Date.now() - unixTime) / 1000;
+    var minutes = 0;
+    var hours = 0;
+    if (secondsElapsed > 3600) {
+      hours = Math.floor(secondsElapsed / 3600); 
+      secondsElapsed -= (hours * 3600)
+    }
+    if (secondsElapsed => 60) {
+      minutes = Math.floor(secondsElapsed / 60); 
+      secondsElapsed -= (minutes * 60); 
+    } 
+    if (secondsElapsed < 5) {
+      return "Just now";
+    }
+    if (secondsElapsed < 60) {
+      secondsElapsed = Math.floor(secondsElapsed);
+    }
+    return `${hours} hours, ${minutes} minutes, ${secondsElapsed} seconds ago`;
+  };
+
   function escape(str) {
     var div = document.createElement('div');
     div.appendChild(document.createTextNode(str));
     return div.innerHTML;
   }
   
-  var $tweets = $('#tweets')
 
+  //this ajax infused function loadTweets() takes the JSON provided through the middleware (bottom of index.js), parses it, and performs a fn on all tweets
+  var $tweets = $('#tweets')
   function loadTweets() {
-    $.getJSON('/tweets', function( tweets ) {
-      // $tweets.append(tweets.map(createTweetElement));
+    $.getJSON('/tweets', function( tweets ) { //getJSON goes to '/tweets' and creates a cb that executes when that data retrieval is successful.
       tweets.forEach(function(tweet) {
-        $tweets.prepend(createTweetElement(tweet));
+        $tweets.prepend(createTweetElement(tweet)); //this is where the magic happens, and each tweet is prepended onto the data stack in reverse order of its storage.
       });
     });
   }
@@ -32,13 +49,12 @@ $(function() {
     $tweetHeader.append( $( "<img class='twitter-pic' src=" + tweet.user.avatars.small + "></img>" ));
     $tweetHeader.append( $( "<h2 class='tweeter-name auto'>" + tweet.user.name + "</h2>" ));
     $tweetHeader.append( $( "<span class='tweeter-handle'>" + tweet.user.handle + "</span>" ));
-    console.log(tweet.content.text);
-    console.log(escape(tweet.content.text));
+
     $tweet.append($tweetBody);
     $tweetBody.append( $( "<span class='tweet-text'>" + escape(tweet.content.text) + "</span>" ));
 
     $tweet.append($tweetFooter);
-    $tweetFooter.append( $( "<span class='time-elapsed'>" + tweet.created_at + "</span>" ));
+    $tweetFooter.append( $( "<span class='time-elapsed'>" + timeSinceTweet(tweet.created_at) + "</span>" ));
     
     var $tweetIcons = $('<div class="tweet-icons">');
 
@@ -50,33 +66,38 @@ $(function() {
   }
 
   //Form submit handler
-  $( 'form#tweet-form' ).on('submit', function(e) {
+  $( '#tweet-form' ).on('submit', function(e) {
     e.preventDefault();
     var $appendPt = $( "#tweet-form" )  //this is what the error span attaches to
     var $textFieldLength = $( "#tweet-textbox" ).val().length;
     var serializedData = $(this).serialize();
+    var removeErrorMsg = $( '.error-msg' ).remove();
 
+    //this ajax request is the way that the front end is able to send info to the backend
     if ($textFieldLength > 0 && $textFieldLength <= 140) {
       $.post( "/tweets", serializedData, function( data ) {
         $( '#tweets' ).empty();
         loadTweets();
+        $( '#tweet-textbox' ).val('');
+        removeErrorMsg;
+        $( '.counter' ).html('140').css( 'color', 'black' );  //why doesn't this work?!
       });
 
-      $( 'textarea#tweet-textbox' ).val('');
-      $( '.error-msg' ).remove();
-      $( '.counter' ).html('140').css( 'color', 'black' );  //why doesn't this work?!
-    } else if ($textFieldLength < 1 && $('.error-msg').length === 0) {
+    } else if ($textFieldLength < 1) {
+      removeErrorMsg;
       $appendPt.append( $( "<span class='error-msg'>You must enter some text</span>" ));
-    } else if ($textFieldLength > 140 && $('.error-msg').length === 0) {
+    } else if ($textFieldLength > 140) {
+      removeErrorMsg;
       $appendPt.append( $( "<span class='error-msg'>Your tweet exceeds the maximum allowed length</span>" ));
     } else {
-      $( '.error-msg' ).remove();
+      removeErrorMsg;
       $appendPt.append( $( "<span class='error-msg'>You must enter some text</span>"));
     }
   });
 
   $( '#compose-btn' ).on( 'click', function(e) {
-    $( '.compose-tweet' ).slideToggle( "slow" );
+    $( '#tweet-textbox' ).blur();
+    $( '.compose-tweet' ).slideToggle( "400" );
     if ($( '.compose-tweet' ).is(":visible") ) {
       $( '#tweet-textbox' ).focus();
     }
