@@ -3,24 +3,25 @@
  * https://css-tricks.com/international-box-sizing-awareness-day/
  * Do not modify these two selectors, please
  */
-html {
-  box-sizing: border-box;
-  font-family: 'Roboto Condensed', sans-serif; }
-
 *:before,
 * *:after {
   box-sizing: inherit; }
 
-body {
-  margin: 0;
-  color: #244751;
-  background-color: #eee; }
-
-main {
-  width: 450px;
-  background: white;
-  font-size: 2em;
-  margin: 0 auto;
-  padding: 140px 2em; }
+html {
+  box-sizing: border-box;
+  font-family: 'Roboto Condensed', sans-serif; }
+  html body {
+    margin: 0;
+    color: #244751;
+    background: url("../images/tweeter-background.png") center no-repeat fixed;
+    background-size: cover;
+    background-color: #f5f5f5; }
+    html body main {
+      width: 450px;
+      background: white;
+      font-size: 2em;
+      margin: 0 auto;
+      padding: 140px .7em;
+      box-shadow: 1px 1px 5px grey; }
 
 /*# sourceMappingURL=layout.css.map */

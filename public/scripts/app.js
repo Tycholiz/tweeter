@@ -17,6 +17,11 @@ $(function() {
     var secondsElapsed = (Date.now() - unixTime) / 1000;
     var minutes = 0;
     var hours = 0;
+    var days = 0;
+    if (secondsElapsed > 86400) {
+      days = Math.floor(secondsElapsed / 86400); 
+      secondsElapsed -= (days * 86400)
+    }
     if (secondsElapsed > 3600) {
       hours = Math.floor(secondsElapsed / 3600); 
       secondsElapsed -= (hours * 3600)
@@ -31,7 +36,7 @@ $(function() {
     if (secondsElapsed < 60) {
       secondsElapsed = Math.floor(secondsElapsed);
     }
-    return `${hours} hours, ${minutes} minutes, ${secondsElapsed} seconds ago`;
+    return `${days} days, ${hours} hours, ${minutes} minutes, ${secondsElapsed} seconds ago`;
   };
 
   function escape(str) {
@@ -109,8 +114,8 @@ $(function() {
     }
   });
 
-  $( '.delete-tweet' ).on( 'click', function(e) {
-    $.post( "/tweets" )
+  $( '.delete-tweet' ).on( 'click', function(e) { //why doesnt this work?
+    console.log("works");
   });
 
   $( '#compose-btn' ).on( 'click', function(e) {

@@ -4,11 +4,12 @@
 #nav-bar {
   position: fixed;
   height: 80px;
-  background: $green;
+  background: $feature-color;
   color: $offwhite;
   width: 100%;
-  margin: 0 2em;  /* why this is not applying to right side */
+  margin: 0;  /* why this is not applying to right side */
   z-index: 1;
+  box-shadow: 1px 1px 10px grey;
   .logo {
     height: 80px;
     width: 80px;
@@ -21,43 +22,44 @@
     padding-left: 10px;
     float: left;
   }
+  #compose-btn {
+    border: 1px solid lightgrey;
+    cursor: pointer;
+    border-radius: 10px;
+    float: right;
+    background: $offwhite;
+    height: 60px;
+    width: 120px;
+    margin-right: 200px;
+    margin-top: 10px;
+    font-size: 1.2em;
+    color: $feature-color;
+    box-shadow: 0px 2px 0px 0px $feature-color;
+    transition: all 0.1s;
+    
+    &:hover {
+      background: white;
+      color: darkslategray;
+      border-color: darkslategray;
+    }
+    &:active {
+      margin-top: 12px;
+      margin-right: 200px;
+      box-shadow: 0px 0px 0px 0px $feature-color;
+    }
+    #compose-text {
+      text-align: center;
+      vertical-align: middle;
+      line-height: 60px;
+    }
+    #compose-icon {
+      text-align: center;
+      vertical-align: middle;
+      line-height: 60px;
+      margin-left: 11px;
+    }
+  }
 }
 
 /* "Tweeter" */
 
-#compose-btn {
-  border: 1px solid black;
-  @include cursorPointer;
-  border-radius: 10px;
-  float: right;
-  background: $offwhite;
-  height: 60px;
-  width: 120px;
-  margin-right: 200px;
-  margin-top: 10px;
-  font-size: 1.2em;
-  color: $green;
-  box-shadow: 0px 2px 0px 0px $green;
-  transition: all 0.1s;
-  
-  &:hover {
-    background: white;
-    color: darkslategray;
-  }
-  &:active {
-    margin-top: 12px;
-    margin-right: 200px;
-    box-shadow: 0px 0px 0px 0px $green;
-  }
-  #compose-text {
-    text-align: center;
-    vertical-align: middle;
-    line-height: 60px;
-  }
-  #compose-icon {
-    text-align: center;
-    vertical-align: middle;
-    line-height: 60px;
-    margin-left: 11px;
-  }
-}
