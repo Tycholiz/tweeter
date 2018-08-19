@@ -16,7 +16,8 @@
     "express": "^4.13.4",
     "jquery": "^3.3.1",
     "md5": "^2.1.0",
-    "mongodb": "^2.2.36"
+    "mongodb": "^2.2.36",
+    "mustache": "^2.3.2"
   },
   "devDependencies": {
     "nodemon": "^1.9.2"

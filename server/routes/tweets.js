@@ -4,6 +4,8 @@ const userHelper    = require("../lib/util/user-helper")
 
 const express       = require('express');
 const tweetsRoutes  = express.Router();
+const app = express();
+app.set('view engine', 'html');
 
 module.exports = function(DataHelpers) {
 
@@ -18,6 +20,11 @@ module.exports = function(DataHelpers) {
       }
     });
   });
+
+  tweetsRoutes.get("/login", function(req, res) {
+    console.log("############### LOGIN ######################")
+    res.render("log-in.html");
+  })
 
   //this get route will create new tweets
   //this route handler calls DataHelpers.saveTweet()

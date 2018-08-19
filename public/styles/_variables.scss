@@ -5,6 +5,32 @@ $compose-tweet:rgb(241, 241, 241);
 $background-color: #f5f5f5;
 $red: #ff7094;
 
+@mixin nav-btn {
+    border: 1px solid lightgrey;
+    cursor: pointer;
+    float: right;
+    background: $offwhite;
+    color: $feature-color;
+    box-shadow: 0px 2px 0px 0px $feature-color;
+    transition: all 0.1s;
+    &:hover {
+        background: white;
+        color: darkslategray;
+        border-color: darkslategray;
+    }
+    &:active {
+        box-shadow: 0px 0px 0px 0px $feature-color;
+    }
+}
+
+@mixin sign-in-up {
+    border-radius: 5px;
+    padding: 5px;
+    margin: 2px;
+    float: right;
+    margin-top: 25px;
+}
+
 @mixin cursorPointer {
     border-radius: 50%;
       @keyframes pulse {

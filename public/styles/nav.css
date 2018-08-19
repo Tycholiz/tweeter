@@ -12,7 +12,8 @@
   #nav-bar .logo {
     height: 80px;
     width: 80px;
-    float: left; }
+    float: left;
+    margin-left: 60px; }
   #nav-bar .header {
     color: white;
     font-size: 2em;
@@ -22,25 +23,26 @@
   #nav-bar #compose-btn {
     border: 1px solid lightgrey;
     cursor: pointer;
-    border-radius: 10px;
     float: right;
     background: white;
+    color: #70b8ff;
+    box-shadow: 0px 2px 0px 0px #70b8ff;
+    transition: all 0.1s;
     height: 60px;
     width: 120px;
     margin-right: 200px;
     margin-top: 10px;
     font-size: 1.2em;
-    color: #70b8ff;
-    box-shadow: 0px 2px 0px 0px #70b8ff;
-    transition: all 0.1s; }
+    border-radius: 10px; }
     #nav-bar #compose-btn:hover {
       background: white;
       color: darkslategray;
       border-color: darkslategray; }
     #nav-bar #compose-btn:active {
-      margin-top: 12px;
-      margin-right: 200px;
       box-shadow: 0px 0px 0px 0px #70b8ff; }
+    #nav-bar #compose-btn:active {
+      margin-top: 12px;
+      margin-right: 200px; }
     #nav-bar #compose-btn #compose-text {
       text-align: center;
       vertical-align: middle;
@@ -50,6 +52,45 @@
       vertical-align: middle;
       line-height: 60px;
       margin-left: 11px; }
+  #nav-bar #sign-up {
+    border: 1px solid lightgrey;
+    cursor: pointer;
+    float: right;
+    background: white;
+    color: #70b8ff;
+    box-shadow: 0px 2px 0px 0px #70b8ff;
+    transition: all 0.1s;
+    border-radius: 5px;
+    padding: 5px;
+    margin: 2px;
+    float: right;
+    margin-top: 25px;
+    margin-right: 40px; }
+    #nav-bar #sign-up:hover {
+      background: white;
+      color: darkslategray;
+      border-color: darkslategray; }
+    #nav-bar #sign-up:active {
+      box-shadow: 0px 0px 0px 0px #70b8ff; }
+  #nav-bar #sign-in {
+    border: 1px solid lightgrey;
+    cursor: pointer;
+    float: right;
+    background: white;
+    color: #70b8ff;
+    box-shadow: 0px 2px 0px 0px #70b8ff;
+    transition: all 0.1s;
+    border-radius: 5px;
+    padding: 5px;
+    margin: 2px;
+    float: right;
+    margin-top: 25px; }
+    #nav-bar #sign-in:hover {
+      background: white;
+      color: darkslategray;
+      border-color: darkslategray; }
+    #nav-bar #sign-in:active {
+      box-shadow: 0px 0px 0px 0px #70b8ff; }
 
 /* "Tweeter" */
 
