@@ -99,7 +99,7 @@ $(function() {
         loadTweets();
         $( '#tweet-textbox' ).val('');
         removeErrorMsg;
-        $( '.counter' ).html('140').css( 'color', 'black' );  //why doesn't this work?!
+        $( '.counter' ).html('140').css( 'color', 'green' );  //why doesn't this work?!
       });
 
     } else if ($textFieldLength < 1) {
@@ -114,8 +114,24 @@ $(function() {
     }
   });
 
-  $( '.delete-tweet' ).on( 'click', function(e) { //why doesnt this work?
-    console.log("works");
+  $( '.delete-tweet' ).click(function(e) { //why doesnt this work? b/c I am targeting multiple tweets with class="delte-tweet"?
+  console.log("hey");
+  $(this).closest(".tweet").remove();
+    var tweetData = {
+          "name": $(".tweeter-name").text //correct syntax?
+    }  
+    var jsonData = JSON.stringify(tweetData);
+     
+    // http request in form of ajax quest**(?)
+    //trying to pass in the string that is attached to the tweet box, where it will be used as a key to locate that user in the db. From there, the document will be deleted.
+    $.ajax({
+       url: "/tweets/delete",
+       type: "POST",
+       data: jsonData,
+       success: function(callback), //not sure what action should be happening here. delete entry off database perhaps?
+       dataType: "json"
+      
+    });
   });
 
   $( '#compose-btn' ).on( 'click', function(e) {
