@@ -4,28 +4,37 @@
  * Do not modify these two selectors, please
  */
 
- html {
-    box-sizing: border-box;
-    font-family: 'Roboto Condensed', sans-serif;
-  }
-  
-  * {
-    &:before, 
-    *:after {
-        box-sizing: inherit;
-    } 
-  }
-  
+@import "variables";
+
+* {
+  &:before, 
+  *:after {
+    box-sizing: inherit;
+  } 
+}
+
+html {
+  box-sizing: border-box;
+  font-family: 'Roboto Condensed', sans-serif;
   body {
     margin: 0;
     color: #244751;
-    background-color: #eee;
+    background: url("../images/tweeter-background.png") center no-repeat fixed;
+    background-size: cover;
+    background-color: $background-color;
+    main {
+      width: 450px;
+      background: white;  
+      font-size: 2em;
+      margin: 0 auto;
+      padding: 140px .7em;
+      box-shadow: 1px 1px 5px grey;
+    }
   }
+}
   
-  main {
-    width: 450px;
-    background: white;  
-    font-size: 2em;
-    margin: 0 auto;
-    padding: 140px 2em;
-  }
+
+  
+  
+  
+ 

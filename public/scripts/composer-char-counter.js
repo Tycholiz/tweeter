@@ -1,4 +1,4 @@
-$(function() {                                      //alternate syntax to $(document).ready(function()
+$(function() {                                
     $("#tweet-textbox").on('keyup', function() {
         var content = $( "input[id='tweet-textbox']" );
         var charactersInBox = this.value.length;

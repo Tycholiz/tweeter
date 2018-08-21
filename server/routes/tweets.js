@@ -43,8 +43,13 @@ module.exports = function(DataHelpers) {
       }
     });
   });
-  // tweetsRoutes.delete("/", function(req, res) {
-  //   DataHelpers.deleteTweet(tweet);
-  // }
+
+  tweetsRoutes.delete("/:id", function(req, res) {
+    var collectionID = req.url.slice(1);
+    DataHelpers.deleteTweet(collectionID, () => {
+      res.status(200).send();
+    });
+  });
+
   return tweetsRoutes;
 }
