@@ -4,8 +4,6 @@ const userHelper    = require("../lib/util/user-helper")
 
 const express       = require('express');
 const tweetsRoutes  = express.Router();
-const app = express();
-app.set('view engine', 'html');
 
 module.exports = function(DataHelpers) {
 
@@ -20,11 +18,6 @@ module.exports = function(DataHelpers) {
       }
     });
   });
-
-  tweetsRoutes.get("/login", function(req, res) {
-    console.log("############### LOGIN ######################")
-    res.render("log-in.html");
-  })
 
   //this get route will create new tweets
   //this route handler calls DataHelpers.saveTweet()
@@ -50,8 +43,13 @@ module.exports = function(DataHelpers) {
       }
     });
   });
-  // tweetsRoutes.delete("/", function(req, res) {
-  //   DataHelpers.deleteTweet(tweet);
-  // }
+
+  tweetsRoutes.delete("/:id", function(req, res) {
+    var collectionID = req.url.slice(1);
+    DataHelpers.deleteTweet(collectionID, () => {
+      res.status(200).send();
+    });
+  });
+
   return tweetsRoutes;
 }

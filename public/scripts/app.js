@@ -73,8 +73,8 @@ $(function() {
 
     $tweet.append($tweetFooter);
     $tweetFooter.append( $( "<span class='time-elapsed'>" + timeSinceTweet(tweet.created_at) + "</span>" ));
-    $tweetFooter.append( $( "<i class='fas fa-trash-alt delete-tweet'></i></i>" ));
-    
+    $tweetFooter.append( $( "<i class='fas fa-trash-alt delete-tweet' data-id='" + tweet._id + "'></i>" ));
+    console.log("adding delete btn");
     var $tweetIcons = $('<div class="tweet-icons">');
 
     $tweetFooter.append($tweetIcons);
@@ -114,23 +114,18 @@ $(function() {
     }
   });
 
-  $( '.delete-tweet' ).click(function(e) { //why doesnt this work? b/c I am targeting multiple tweets with class="delte-tweet"?
-  console.log("hey");
-  $(this).closest(".tweet").remove();
-    var tweetData = {
-          "name": $(".tweeter-name").text //correct syntax?
-    }  
-    var jsonData = JSON.stringify(tweetData);
+  $( 'section#tweets' ).on('click', '.delete-tweet', function(e) { //why doesnt this work? b/c I am targeting multiple tweets with class="delete-tweet"?
+    const $target = $(e.target);
+    //var jsonData = JSON.stringify(tweetData);
      
     // http request in form of ajax quest**(?)
-    //trying to pass in the string that is attached to the tweet box, where it will be used as a key to locate that user in the db. From there, the document will be deleted.
+    // trying to pass in the string that is attached to the tweet box, where it will be used as a key to locate that user in the db. From there, the document will be deleted.
     $.ajax({
-       url: "/tweets/delete",
-       type: "POST",
-       data: jsonData,
-       success: function(callback), //not sure what action should be happening here. delete entry off database perhaps?
-       dataType: "json"
-      
+       url: "/tweets/" + $target.data('id'), //this sends a delete reqest to /tweets/:id (ie. the key attached to each tweet)
+       type: "DELETE",
+       success: function(callback) {
+         $target.closest('.tweet').remove();
+       }
     });
   });
 
