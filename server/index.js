@@ -23,7 +23,7 @@ MongoClient.connect(MONGODB_URI, (err, db) => {
   const DataHelpers = require("./lib/data-helpers.js")(db); 
   const tweetsRoutes = require("./routes/tweets")(DataHelpers);
 
-  app.use("/tweets", tweetsRoutes);  //this mounts a middleware fn on /tweets path(where tweets are passed in from the server. This is the connection b/w backend and frontend). The existing tweet data ends its existence in the server here. From here on, the data is available to the front end code.  
+  app.use("/tweets", tweetsRoutes);  //this mounts a middleware fn on /tweets path(where tweets are passed in from the server. 
 });
 
 app.listen(PORT, () => {

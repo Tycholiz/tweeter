@@ -35,6 +35,7 @@ module.exports = function(DataHelpers) {
       created_at: Date.now()
     };
 
+    //This is the connection b/w backend and frontend. The existing tweet data ends its existence in the server here. From here on, the data is available to the front end code.  
     DataHelpers.saveTweet(tweet, (err) => {
       if (err) {
         res.status(500).json({ error: err.message });
